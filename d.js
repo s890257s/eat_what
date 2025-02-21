@@ -4,10 +4,10 @@ const EN = { eat: "Eat", ok: "ok?", no: "NO!", title: "Eat what?" };
 const i18n = { "ZH-TW": ZH_TW, "ZH-CN": ZH_CN, EN };
 
 const ORIGINAL_DISH = [
-    {id:1, selected: false, "EN": "Braised Beef", "ZH-TW": "紅燒牛肉", "ZH-CN": "红烧牛肉", "category": "Chinese", "img": "" },
-    {id:2, selected: false, "EN": "Beef Noodle Soup", "ZH-TW": "牛肉麵", "ZH-CN": "牛肉面", "category": "Taiwanese", "img": "" },
-    {id:3, selected: false, "EN": "Kung Pao Chicken", "ZH-TW": "宮保雞丁", "ZH-CN": "宫保鸡丁", "category": "Chinese", "img": "" },
-    {id:4, selected: false, "EN": "Mapo Tofu", "ZH-TW": "麻婆豆腐", "ZH-CN": "麻婆豆腐", "category": "Chinese", "img": "" },
+    {id:1, selected: false, "EN": "Braised Beef", "ZH-TW": "紅燒牛肉", "ZH-CN": "红烧牛肉", "category": "Chinese", "img": "https://i.meee.com.tw/bDO7Hqx.jpg" },
+    {id:2, selected: false, "EN": "Beef Noodle Soup", "ZH-TW": "牛肉麵", "ZH-CN": "牛肉面", "category": "Taiwanese", "img": "https://i.meee.com.tw/QPTCVtq.jpg" },
+    {id:3, selected: false, "EN": "Kung Pao Chicken", "ZH-TW": "宮保雞丁", "ZH-CN": "宫保鸡丁", "category": "Chinese", "img": "https://i.meee.com.tw/RGBHGYF.jpg" },
+    {id:4, selected: false, "EN": "Mapo Tofu", "ZH-TW": "麻婆豆腐", "ZH-CN": "麻婆豆腐", "category": "Chinese", "img": "https://i.meee.com.tw/2ru0Tt7.jpg" },
     {id:5, selected: false, "EN": "Sweet and Sour Pork", "ZH-TW": "糖醋里脊", "ZH-CN": "糖醋里脊", "category": "Chinese", "img": "" },
     {id:6, selected: false, "EN": "General Tso's Chicken", "ZH-TW": "左宗棠雞", "ZH-CN": "左宗棠鸡", "category": "Chinese American", "img": "" },
     {id:7, selected: false, "EN": "Fried Rice", "ZH-TW": "炒飯", "ZH-CN": "炒饭", "category": "Chinese", "img": "" },

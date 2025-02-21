@@ -101,7 +101,12 @@
       <!-- 圖片 -->
       <div class="row d-flex justify-content-center">
         <div class="col-3">
-          <img class="w-100" src="https://fakeimg.pl/300/" />
+          <template v-if="randomDish.img">
+            <img class="w-100" :src="randomDish.img" />
+          </template>
+          <template v-else>
+            <img class="w-100" src="https://fakeimg.pl/300/?text=No Image" />
+          </template>
         </div>
       </div>
 
@@ -127,7 +132,15 @@
           <div class="card my-2">
             <div class="card-header text-center">{{dish[language]}}</div>
             <div class="card-body">
-              <img class="w-100" src="https://fakeimg.pl/100/" />
+              <template v-if="dish.img">
+                <img class="w-100" :src="dish.img" />
+              </template>
+              <template v-else>
+                <img
+                  class="w-100"
+                  src="https://fakeimg.pl/100/?text=No Image"
+                />
+              </template>
             </div>
           </div>
         </div>
