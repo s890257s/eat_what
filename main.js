@@ -12,26 +12,41 @@ createApp({
     const changeLanguage = (lang) => (language.value = lang);
 
     // === 菜色 ===
-    const dishes = reactive(ORIGINAL_DISH);
+    // 隨機抽取
     const getRandomDish = (arr) => arr[Math.floor(Math.random() * arr.length)];
-    const randomDish = ref(getRandomDish(dishes));
 
+    // 加入 Queue
+    const addToDishQueue = async (dish) => {
+      const blob = await fetch(dish.img).then((rs) => rs.blob());
+      const tempUrl = URL.createObjectURL(blob);
+      dish.img = tempUrl;
+      dish.selected = true;
+      dishesQueue.push(dish);
+    };
+
+    // 從 Queue 中取得一個 dish
+    const getDishFromQueue = () => {
+      return dishesQueue.pop();
+    };
+
+    const dishes = reactive(ORIGINAL_DISH);
+    const dishesQueue = reactive([]);
+    const showDish = ref({});
     const unselectedDish = computed(() => dishes.filter((d) => !d.selected));
     const selectedDish = computed(() =>
       dishes.filter((d) => d.selected).sort((a, b) => b.index - a.index)
     );
 
-    let i = 0; // 排序用
-    const getDish = () => {
-      randomDish.value.selected = true;
-      randomDish.value.index = i++;
-      randomDish.value = getRandomDish(unselectedDish.value);
-    };
+    // 預先取得三個
+    for (let i = 1; i <= 3; i++) {
+      const dish = getRandomDish(unselectedDish.value);
+      addToDishQueue(dish);
+    }
+    showDish.value = getDishFromQueue();
 
     // === 記憶 ===
     const remember = ref(false);
     watch(selectedDish, (val) => {
-      console.log(remember.value);
       if (!remember.value) return;
       Cookies.set("ewr", val.map((v) => v.id).join(","), { expires: 7 });
     });
@@ -39,11 +54,12 @@ createApp({
     return {
       base,
       language,
-      randomDish,
+      showDish,
       selectedDish,
       remember,
+      dishesQueue,
       changeLanguage,
-      getDish,
+      getDish: addToDishQueue,
     };
   },
 }).mount("#app");

@@ -99,14 +99,15 @@
 
       <!-- 標題 -->
       <div class="row text-center">
-        <h1>{{base.eat}} {{randomDish[language]}}</h1>
+        <h1>{{base.eat}} {{showDish[language]}}</h1>
+        {{dishesQueue}}
       </div>
 
       <!-- 圖片 -->
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4">
-          <template v-if="randomDish.img">
-            <img class="w-100" :src="randomDish.img" />
+          <template v-if="showDish.img">
+            <img class="w-100" :src="showDish.img" />
           </template>
           <template v-else>
             <img class="w-100" src="https://fakeimg.pl/300/?text=No Image" />
